@@ -2,10 +2,11 @@
 
 class Node(object):
 
-    def __init__(self, data):
+    def __init__(self, data, index_label=0):
         """Initialize this node with the given data."""
         self.data = data
         self.next = None
+        self.index_label = index_label
 
     def __repr__(self):
         """Return a string representation of this node."""
