@@ -94,7 +94,6 @@ class LinkedList(object):
 
         return None
 
-
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
@@ -104,7 +103,19 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+        current = self.head
+        while current is not None:
+            # check for match with quality() function on first node
+            if current.index_label == index - 1:
+                # add new item
+                new_node = Node(item)
+                # set new_node's next pointer
+                new_node.next = current.next
+                current.next = new_node
+            # if index not found at current node, resume loop
+            current = current.next
 
+        return None
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -161,7 +172,15 @@ class LinkedList(object):
         Worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        pass
+        current = self.head
+        while current is not None:
+            # check for match with quality() function on first node
+            if current.data == old_item:
+                current.data = new_item
+
+            current = current.next
+
+        return None
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
