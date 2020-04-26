@@ -134,7 +134,10 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(1) & O(n)
+        Under what conditions?
+            Best case: LinkedList is is_empty
+            Worst case: LinkedList is long"""
         # Create a new node to hold the given item
         new_node = Node(item)
         # Check if this linked list is empty
